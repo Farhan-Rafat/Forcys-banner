@@ -1,0 +1,197 @@
+// hamburger
+.hamburger {
+  width: 32px;
+  position: relative;
+  z-index: 99999;
+  cursor: pointer;
+  i {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    transition: 0.3s;
+    + i {
+      margin-top: 6px;
+    }
+  }
+}
+
+.open-nav {
+  .header-logo {
+    .hamburger {
+      i {
+        background-color: #242d3f;
+        &:nth-child(1) {
+          transform: translateY(8px) rotate(-45deg);
+        }
+        &:nth-child(2) {
+          opacity: 0;
+        }
+        &:nth-child(3) {
+          transform: translateY(-8px) rotate(45deg);
+        }
+      }
+    }
+  }
+}
+// style btn
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #242d3f;
+  font-size: 11px;
+  font-family: "satoshi";
+  font-weight: bold;
+  background-color: #b1ff00;
+  padding: 12px 39px;
+  border: 2px solid #b1ff00;
+  border-radius: 36px;
+  transition: 0.3s ease-in-out;
+  margin-top: 70px;
+  &:hover {
+    background-color: transparent;
+  }
+}
+
+// fixed btn
+.fixed-btn {
+  position: fixed;
+  right: -100px;
+  top: 50%;
+  transform: rotate(-90deg);
+  transition: all 0.3s;
+  z-index: 9999;
+  a {
+    background-color: #b1ff00;
+    border-radius: 2.1875rem 2.1875rem 0 0;
+    color: #242d3f;
+    display: block;
+    font-family: "Satoshi";
+    font-weight: bold;
+    font-size: 11px;
+    line-height: 15px;
+    text-align: center;
+    letter-spacing: 0.115em;
+    padding: 8px 0 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 215px;
+  }
+  &:hover {
+    right: -88px;
+  }
+}
+
+// dropdown menu
+.nav-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  padding: 30px 0;
+  z-index: 9999;
+  max-height: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s ease-in-out;
+  background-image: url(../images/DD-bg.jpg);
+  background-repeat: no-repeat;
+  background-position: right 0px center;
+  .main-nav-menu {
+    max-width: 33.3333%;
+    .main-nav {
+      list-style-type: none;
+      padding-top: 45px;
+      > li {
+        > a {
+          display: block;
+          text-decoration: none;
+          color: #242d3f;
+          font-size: 20px;
+          font-family: "satoshi";
+          font-weight: bold;
+          line-height: 27px;
+          letter-spacing: normal;
+          text-transform: capitalize;
+          position: relative;
+          &::after {
+            position: absolute;
+            content: "";
+            background-image: url(../images/right-arrow.svg);
+            @include bg-reset;
+            top: 0;
+            right: 0;
+            width: 55px;
+            height: 10px;
+          }
+        }
+        &.has-sub-menu {
+          position: relative;
+
+          span.sub-menu-wrap {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            width: 420px;
+            border-left: 1px solid #dadada;
+            padding: 10px 35px;
+            margin-left: 35px;
+            p {
+              color: #242d3f;
+              font-size: 15px;
+              font-family: "satoshi";
+              font-weight: normal;
+              line-height: 22px;
+              border-bottom: 1px solid #dadada;
+              padding-bottom: 10px;
+            }
+            .sub-menu {
+              padding-top: 18px;
+              list-style: none;
+              li {
+                a {
+                  text-decoration: none;
+                  color: #242d3f;
+                  font-size: 15px;
+                  font-family: "satoshi";
+                  font-weight: bold;
+                  line-height: 22px;
+                }
+                + li {
+                  margin-top: 19px;
+                }
+              }
+            }
+          }
+        }
+        + li {
+          margin-top: 33px;
+        }
+      }
+    }
+  }
+}
+.open-nav {
+  .nav-wrapper {
+    max-height: 700px;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+.nav-wrapper {
+  .holder {
+    .main-nav-menu {
+      .main-nav {
+        .open {
+          .sub-menu-wrap {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}
